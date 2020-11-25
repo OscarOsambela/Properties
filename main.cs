@@ -11,9 +11,11 @@ public class Program
     //Oscar.setSalario(3000);
     //Console.WriteLine("El salario de Oscar es " + Oscar.getSalario());
     //3. llamamos a la propiedad
-    Oscar.SALARIO = 1200;
+    Oscar.SALARIO = -1200;
     Console.WriteLine("El salario de Oscar es: " + Oscar.SALARIO);
   }
+
+	
   class Empleado{
     //convencion de propiedades. cuando se utilice propiedades los campos de clase se escribe con un subguion o guion bajo
     private double _salario;
@@ -36,11 +38,11 @@ public class Program
       return salario;
     }
     */
-    //1.creamos un metodo para este ejemplo
+    /*1.creamos un metodo para este ejemplo
     private double evaluaSalario(double _salario){
       if(_salario < 0) return 0;
       else return _salario;
-    }
+    }*/
     /*2. crear propiedad en mayusculas
     public double SALARIO{
       get{ return this.salario;}
@@ -49,8 +51,12 @@ public class Program
     //4.simplifiquemos la sentencia del propiedad explicada en el punto 2
     public double SALARIO{
       get => this._salario;
-      set => this._salario = evaluaSalario(value);
-    }
+      //set => this._salario = evaluaSalario(value);
+			//remplazamos el metodo 1. por esta sentencia
+			set{ if(value < 0) value = -value;
+			_salario = value;
+			}
+		}
     //propiedad de solo lectura se utiliza el get y se omite el set
     //propiedad de solo escritura se utiliza el set y se omite el get
     //puede servir en casos se presente este escenario
